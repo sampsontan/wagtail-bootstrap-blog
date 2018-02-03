@@ -95,6 +95,10 @@ class PostPage(Page):
         FieldPanel('tags'),
     ]
 
+    settings_panels = Page.settings_panels + [
+        FieldPanel('date'),
+    ]
+
     @property
     def blog_page(self):
         return self.get_parent().specific
