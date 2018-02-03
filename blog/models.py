@@ -62,10 +62,15 @@ class PostPage(Page):
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
     tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
+    ]
+
+    settings_panels = Page.settings_panels + [
+        FieldPanel('date'),
     ]
 
     @property
