@@ -7,11 +7,11 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app \
     DJANGO_SETTINGS_MODULE=config.settings.dev \
-    PORT=8000 \
+    PORT=80 \
     WEB_CONCURRENCY=3 \
     GUNICORN_CMD_ARGS="--max-requests 1200 --access-logfile -"
 
-EXPOSE 8000
+EXPOSE 80
 
 # Install operating system dependencies.
 RUN apt-get update -y && \
